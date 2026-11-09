@@ -11,73 +11,45 @@
     "header": {
       "name": "Cabeçalho",
       "settings": {
-        "menu": {
-          "label": "Menu"
-        },
-        "header__localization": {
-          "content": "Localização"
-        },
-        "enable_country_selector": {
-          "label": "Ativar seletor de país/região"
-        },
-        "enable_language_selector": {
-          "label": "Ativar seletor de idioma"
-        }
+        "menu": { "label": "Menu" },
+        "header__localization": { "content": "Localização" },
+        "enable_country_selector": { "label": "Ativar seletor de país/região" },
+        "enable_language_selector": { "label": "Ativar seletor de idioma" }
       }
     },
     "footer": {
       "name": "Rodapé",
       "settings": {
-        "show_social": {
-          "label": "Mostrar ícones das redes sociais"
-        },
-        "show_payment_icons": {
-          "label": "Mostrar ícones de pagamento"
-        },
-        "enable_localization": {
-          "label": "Ativar seletores de país e idioma"
-        }
+        "show_social": { "label": "Mostrar ícones das redes sociais" },
+        "show_payment_icons": { "label": "Mostrar ícones de pagamento" },
+        "enable_localization": { "label": "Ativar seletores de país e idioma" }
       },
       "blocks": {
         "brand": {
           "name": "Informações da marca",
           "settings": {
-            "logo": {
-              "label": "Imagem do logo"
-            },
-            "text": {
-              "label": "Texto"
-            }
+            "logo": { "label": "Imagem do logo" },
+            "text": { "label": "Texto" }
           }
         },
         "menu": {
           "name": "Menu",
           "settings": {
-            "heading": {
-              "label": "Título"
-            },
-            "menu": {
-              "label": "Menu"
-            }
+            "heading": { "label": "Título" },
+            "menu": { "label": "Menu" }
           }
         },
         "text": {
           "name": "Texto",
           "settings": {
-            "heading": {
-              "label": "Título"
-            },
-            "text": {
-              "label": "Texto"
-            }
+            "heading": { "label": "Título" },
+            "text": { "label": "Texto" }
           }
         },
         "newsletter": {
           "name": "Newsletter",
           "settings": {
-            "heading": {
-              "label": "Título"
-            }
+            "heading": { "label": "Título" }
           }
         }
       }
@@ -85,66 +57,36 @@
     "image_banner": {
       "name": "Banner com imagem",
       "settings": {
-        "image": {
-          "label": "Imagem"
-        },
+        "image": { "label": "Imagem" },
         "height": {
           "label": "Altura do banner",
-          "options__1": {
-            "label": "Pequena"
-          },
-          "options__2": {
-            "label": "Média"
-          },
-          "options__3": {
-            "label": "Grande"
-          }
+          "options__1": { "label": "Pequena" },
+          "options__2": { "label": "Média" },
+          "options__3": { "label": "Grande" }
         },
         "text_alignment": {
           "label": "Alinhamento do conteúdo",
-          "options__1": {
-            "label": "Esquerda"
-          },
-          "options__2": {
-            "label": "Centro"
-          },
-          "options__3": {
-            "label": "Direita"
-          }
+          "options__1": { "label": "Esquerda" },
+          "options__2": { "label": "Centro" },
+          "options__3": { "label": "Direita" }
         }
       },
       "blocks": {
         "heading": {
           "name": "Título",
-          "settings": {
-            "heading": {
-              "label": "Título"
-            }
-          }
+          "settings": { "heading": { "label": "Título" } }
         },
         "text": {
           "name": "Texto",
-          "settings": {
-            "text": {
-              "label": "Texto"
-            }
-          }
+          "settings": { "text": { "label": "Texto" } }
         },
         "button": {
           "name": "Botões",
           "settings": {
-            "button_label": {
-              "label": "Texto do primeiro botão"
-            },
-            "button_link": {
-              "label": "Link do primeiro botão"
-            },
-            "button_label_2": {
-              "label": "Texto do segundo botão"
-            },
-            "button_link_2": {
-              "label": "Link do segundo botão"
-            }
+            "button_label": { "label": "Texto do primeiro botão" },
+            "button_link": { "label": "Link do primeiro botão" },
+            "button_label_2": { "label": "Texto do segundo botão" },
+            "button_link_2": { "label": "Link do segundo botão" }
           }
         }
       }
@@ -152,40 +94,24 @@
     "featured_collection": {
       "name": "Coleção em destaque",
       "settings": {
-        "heading": {
-          "label": "Título"
-        },
-        "collection": {
-          "label": "Coleção"
-        },
-        "products_to_show": {
-          "label": "Máximo de produtos exibidos"
-        },
-        "columns_desktop": {
-          "label": "Número de colunas no computador"
-        },
-        "show_view_all": {
-          "label": "Mostrar botão \"Ver tudo\""
-        }
+        "heading": { "label": "Título" },
+        "collection": { "label": "Coleção" },
+        "products_to_show": { "label": "Máximo de produtos exibidos" },
+        "columns_desktop": { "label": "Número de colunas no computador" },
+        "show_view_all": { "label": "Mostrar botão \"Ver tudo\"" }
       }
     },
     "collection_list": {
       "name": "Lista de coleções",
       "settings": {
-        "heading": {
-          "label": "Título"
-        },
-        "columns_desktop": {
-          "label": "Número de colunas no computador"
-        }
+        "heading": { "label": "Título" },
+        "columns_desktop": { "label": "Número de colunas no computador" }
       },
       "blocks": {
         "featured_collection": {
           "name": "Coleção",
           "settings": {
-            "collection": {
-              "label": "Coleção"
-            }
+            "collection": { "label": "Coleção" }
           }
         }
       }
@@ -196,29 +122,17 @@
       "blocks": {
         "heading": {
           "name": "Título",
-          "settings": {
-            "heading": {
-              "label": "Título"
-            }
-          }
+          "settings": { "heading": { "label": "Título" } }
         },
         "text": {
           "name": "Texto",
-          "settings": {
-            "text": {
-              "label": "Texto"
-            }
-          }
+          "settings": { "text": { "label": "Texto" } }
         },
         "button": {
           "name": "Botão",
           "settings": {
-            "button_label": {
-              "label": "Texto do botão"
-            },
-            "button_link": {
-              "label": "Link do botão"
-            }
+            "button_label": { "label": "Texto do botão" },
+            "button_link": { "label": "Link do botão" }
           }
         }
       }
@@ -226,20 +140,19 @@
     "main_product": {
       "name": "Informações do produto",
       "blocks": {
-        "vendor": {
-          "name": "Fornecedor"
-        },
-        "title": {
-          "name": "Título"
-        },
-        "price": {
-          "name": "Preço"
-        },
-        "variant_picker": {
-          "name": "Seletor de variantes"
-        },
-        "quantity": {
-          "name": "Seletor de quantidade"
+        "vendor": { "name": "Fornecedor" },
+        "title": { "name": "Título" },
+        "price": { "name": "Preço" },
+        "variant_picker": { "name": "Seletor de variantes" },
+        "quantity": { "name": "Seletor de quantidade" },
+        "trust_badges": {
+          "name": "Selos de confiança",
+          "settings": {
+            "entrega": { "label": "Texto do prazo de entrega" },
+            "selo_1": { "label": "Selo 1" },
+            "selo_2": { "label": "Selo 2" },
+            "selo_3": { "label": "Selo 3" }
+          }
         },
         "buy_buttons": {
           "name": "Botões de compra",
@@ -250,18 +163,12 @@
             }
           }
         },
-        "description": {
-          "name": "Descrição"
-        },
-        "share": {
-          "name": "Compartilhar"
-        },
+        "description": { "name": "Descrição" },
+        "share": { "name": "Compartilhar" },
         "custom_liquid": {
           "name": "Liquid personalizado",
           "settings": {
-            "custom_liquid": {
-              "label": "Liquid personalizado"
-            }
+            "custom_liquid": { "label": "Liquid personalizado" }
           }
         }
       }
@@ -269,59 +176,37 @@
     "related_products": {
       "name": "Produtos relacionados",
       "settings": {
-        "enable": {
-          "label": "Mostrar produtos relacionados"
-        },
-        "heading": {
-          "label": "Título"
-        },
-        "products_to_show": {
-          "label": "Máximo de produtos exibidos"
-        }
+        "enable": { "label": "Mostrar produtos relacionados" },
+        "heading": { "label": "Título" },
+        "products_to_show": { "label": "Máximo de produtos exibidos" }
       }
     },
     "main_collection": {
       "name": "Grade de produtos",
       "settings": {
-        "products_per_page": {
-          "label": "Produtos por página"
-        },
-        "columns_desktop": {
-          "label": "Número de colunas no computador"
-        },
-        "enable_sorting": {
-          "label": "Ativar ordenação"
-        },
-        "enable_filtering": {
-          "label": "Ativar filtros"
-        }
+        "products_per_page": { "label": "Produtos por página" },
+        "columns_desktop": { "label": "Número de colunas no computador" },
+        "enable_sorting": { "label": "Ativar ordenação" },
+        "enable_filtering": { "label": "Ativar filtros" }
       }
     },
     "collection_banner": {
       "name": "Banner da coleção",
       "settings": {
-        "show_description": {
-          "label": "Mostrar descrição da coleção"
-        },
-        "show_image": {
-          "label": "Mostrar imagem da coleção"
-        }
+        "show_description": { "label": "Mostrar descrição da coleção" },
+        "show_image": { "label": "Mostrar imagem da coleção" }
       }
     },
     "main_cart": {
       "name": "Carrinho",
       "settings": {
-        "show_note": {
-          "label": "Ativar observação do pedido"
-        }
+        "show_note": { "label": "Ativar observação do pedido" }
       }
     },
     "main_list_collections": {
       "name": "Lista de coleções",
       "settings": {
-        "heading": {
-          "label": "Título"
-        }
+        "heading": { "label": "Título" }
       }
     },
     "main_search": {
@@ -339,9 +224,7 @@
     "main_blog": {
       "name": "Posts do blog",
       "settings": {
-        "posts_per_page": {
-          "label": "Posts por página"
-        }
+        "posts_per_page": { "label": "Posts por página" }
       }
     },
     "main_article": {
@@ -355,9 +238,7 @@
     "contact_form": {
       "name": "Formulário de contato",
       "settings": {
-        "heading": {
-          "label": "Título"
-        }
+        "heading": { "label": "Título" }
       }
     }
   },
@@ -526,6 +407,29 @@
           "label": "Imagem de compartilhamento",
           "info": "Usada quando a loja é compartilhada nas redes sociais"
         }
+      }
+    },
+    "brasil": {
+      "name": "Vendas no Brasil",
+      "settings": {
+        "header__parcelamento": { "content": "Parcelamento" },
+        "br_parcelamento_ativo": {
+          "label": "Mostrar preço parcelado",
+          "info": "Só exibe a mensagem. O parcelamento sem juros precisa estar configurado no seu gateway de pagamento."
+        },
+        "br_parcelas_max": { "label": "Número máximo de parcelas" },
+        "br_parcela_minima": { "label": "Valor mínimo de cada parcela" },
+        "header__pix": { "content": "Pix" },
+        "br_pix_desconto": {
+          "label": "Desconto no Pix",
+          "info": "Com 0 o preço no Pix não aparece. O desconto em si precisa ser configurado no gateway ou como desconto automático."
+        },
+        "header__whatsapp": { "content": "Botão de WhatsApp" },
+        "br_whatsapp_numero": {
+          "label": "Número do WhatsApp",
+          "info": "Só números, com DDI e DDD. Exemplo: 5511999999999. Deixe em branco para esconder o botão."
+        },
+        "br_whatsapp_mensagem": { "label": "Mensagem inicial" }
       }
     }
   }

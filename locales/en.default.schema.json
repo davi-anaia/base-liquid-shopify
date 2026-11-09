@@ -145,6 +145,15 @@
         "price": { "name": "Price" },
         "variant_picker": { "name": "Variant picker" },
         "quantity": { "name": "Quantity selector" },
+        "trust_badges": {
+          "name": "Trust badges",
+          "settings": {
+            "entrega": { "label": "Delivery time text" },
+            "selo_1": { "label": "Badge 1" },
+            "selo_2": { "label": "Badge 2" },
+            "selo_3": { "label": "Badge 3" }
+          }
+        },
         "buy_buttons": {
           "name": "Buy buttons",
           "settings": {
@@ -398,6 +407,29 @@
           "label": "Sharing image",
           "info": "Used when sharing the store on social media"
         }
+      }
+    },
+    "brasil": {
+      "name": "Selling in Brazil",
+      "settings": {
+        "header__parcelamento": { "content": "Installments" },
+        "br_parcelamento_ativo": {
+          "label": "Show installment price",
+          "info": "Only shows the message. Interest-free installments must be configured in your payment gateway."
+        },
+        "br_parcelas_max": { "label": "Maximum installments" },
+        "br_parcela_minima": { "label": "Minimum installment value" },
+        "header__pix": { "content": "Pix" },
+        "br_pix_desconto": {
+          "label": "Pix discount",
+          "info": "0 hides the Pix price. The discount itself must be configured in your payment gateway or as an automatic discount."
+        },
+        "header__whatsapp": { "content": "WhatsApp button" },
+        "br_whatsapp_numero": {
+          "label": "WhatsApp number",
+          "info": "Digits only, with country and area code. Example: 5511999999999. Leave blank to hide the button."
+        },
+        "br_whatsapp_mensagem": { "label": "Initial message" }
       }
     }
   }

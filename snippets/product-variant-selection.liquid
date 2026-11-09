@@ -85,6 +85,12 @@
           tmp.innerHTML = variant.price_html;
           var fresh = tmp.querySelector('.price');
           if (fresh) { existing.replaceWith(fresh); }
+          // Também troca o parcelamento/Pix (.price-br), que muda junto com o preço.
+          var oldBr = priceContainer.querySelector('.price-br');
+          var freshBr = tmp.querySelector('.price-br');
+          if (oldBr && freshBr) { oldBr.replaceWith(freshBr); }
+          else if (oldBr) { oldBr.remove(); }
+          else if (freshBr && fresh) { fresh.after(freshBr); }
         }
       }
 

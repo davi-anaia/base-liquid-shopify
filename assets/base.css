@@ -198,3 +198,51 @@ textarea.field__input {
 .rte a { color: var(--color-accent); }
 .rte img { max-width: 100%; height: auto; border-radius: var(--media-radius); }
 .rte ul, .rte ol { padding-left: 1.5em; }
+
+/* ============================================================
+   Vendas no Brasil — parcelamento, Pix, selos e WhatsApp
+   ============================================================ */
+
+/* Parcelamento e Pix abaixo do preço (snippet price, show_br) */
+.price-br { margin-top: 4px; font-size: var(--f1); line-height: 1.4; }
+.price-br p { margin: 0; }
+.price-br__pix { color: var(--color-sale, #1cb744); }
+.price-br.price--card { font-size: var(--f0); }
+
+/* Selos de confiança na página de produto (bloco trust_badges) */
+.trust-badges {
+  margin: 16px 0;
+  padding: 14px 16px;
+  border: 1px solid var(--color-border, #e5e5e5);
+  border-radius: var(--media-radius, 8px);
+}
+.trust-badges__entrega,
+.trust-badges__list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--f1);
+}
+.trust-badges__entrega { margin: 0 0 10px; font-weight: bold; }
+.trust-badges__list { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.trust-badges svg { flex-shrink: 0; color: var(--color-accent); }
+
+/* Botão flutuante de WhatsApp (snippet whatsapp-button) */
+.whatsapp-button {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  color: #fff;
+  background-color: #25d366;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+.whatsapp-button:hover,
+.whatsapp-button:focus-visible { transform: scale(1.08); }

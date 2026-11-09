@@ -37,6 +37,9 @@
       "email_placeholder": "E-mail",
       "confirmation": "Obrigado por se inscrever!",
       "button_label": "Inscrever"
+    },
+    "whatsapp": {
+      "label": "Fale com a gente no WhatsApp"
     }
   },
   "accessibility": {
@@ -84,7 +87,9 @@
         "from_price_html": "A partir de {{ price }}",
         "regular_price": "Preço normal",
         "sale_price": "Preço promocional",
-        "unit_price": "Preço unitário"
+        "unit_price": "Preço unitário",
+        "installments_html": "ou <strong>{{ count }}x de {{ amount }}</strong> sem juros",
+        "pix_html": "<strong>{{ amount }}</strong> no Pix ({{ discount }}% de desconto)"
       },
       "vendor": "Fornecedor",
       "view_full_details": "Ver todos os detalhes",

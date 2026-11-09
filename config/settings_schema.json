@@ -301,5 +301,71 @@
         "info": "t:settings_schema.social_sharing.settings.share_image.info"
       }
     ]
+  },
+  {
+    "name": "t:settings_schema.brasil.name",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:settings_schema.brasil.settings.header__parcelamento.content"
+      },
+      {
+        "type": "checkbox",
+        "id": "br_parcelamento_ativo",
+        "default": true,
+        "label": "t:settings_schema.brasil.settings.br_parcelamento_ativo.label",
+        "info": "t:settings_schema.brasil.settings.br_parcelamento_ativo.info"
+      },
+      {
+        "type": "range",
+        "id": "br_parcelas_max",
+        "min": 2,
+        "max": 12,
+        "step": 1,
+        "default": 6,
+        "label": "t:settings_schema.brasil.settings.br_parcelas_max.label"
+      },
+      {
+        "type": "range",
+        "id": "br_parcela_minima",
+        "min": 5,
+        "max": 50,
+        "step": 5,
+        "unit": "R$",
+        "default": 10,
+        "label": "t:settings_schema.brasil.settings.br_parcela_minima.label"
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.brasil.settings.header__pix.content"
+      },
+      {
+        "type": "range",
+        "id": "br_pix_desconto",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "unit": "%",
+        "default": 5,
+        "label": "t:settings_schema.brasil.settings.br_pix_desconto.label",
+        "info": "t:settings_schema.brasil.settings.br_pix_desconto.info"
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.brasil.settings.header__whatsapp.content"
+      },
+      {
+        "type": "text",
+        "id": "br_whatsapp_numero",
+        "label": "t:settings_schema.brasil.settings.br_whatsapp_numero.label",
+        "info": "t:settings_schema.brasil.settings.br_whatsapp_numero.info"
+      },
+      {
+        "type": "text",
+        "id": "br_whatsapp_mensagem",
+        "default": "Olá! Vim pela loja e tenho uma dúvida.",
+        "label": "t:settings_schema.brasil.settings.br_whatsapp_mensagem.label"
+      }
+    ]
   }
 ]
