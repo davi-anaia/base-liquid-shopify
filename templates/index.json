@@ -3,17 +3,167 @@
     "hero": {
       "type": "image-banner",
       "blocks": {
-        "heading": { "type": "heading", "settings": { "heading": "Achadinhos que facilitam o seu dia a dia" } },
-        "text": { "type": "text", "settings": { "text": "<p>Organização, praticidade e conforto para a sua casa, com entrega para todo o Brasil.</p>" } },
-        "button": { "type": "button", "settings": { "button_label": "Ver produtos" } }
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Achadinhos que facilitam o seu dia a dia"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Organização, praticidade e conforto para a sua casa, com entrega para todo o Brasil.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Ver produtos",
+            "button_link": "shopify://collections/all"
+          }
+        }
       },
-      "block_order": ["heading", "text", "button"],
-      "settings": { "height": "medium", "text_alignment": "center" }
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "height": "medium",
+        "text_alignment": "center"
+      }
+    },
+    "beneficios": {
+      "type": "beneficios",
+      "blocks": {
+        "b1": {
+          "type": "beneficio",
+          "settings": {
+            "icone": "truck",
+            "titulo": "Enviamos para todo o Brasil",
+            "texto": "Com código de rastreio"
+          }
+        },
+        "b2": {
+          "type": "beneficio",
+          "settings": {
+            "icone": "shield",
+            "titulo": "Compra 100% segura",
+            "texto": "Pagamento protegido"
+          }
+        },
+        "b3": {
+          "type": "beneficio",
+          "settings": {
+            "icone": "exchange",
+            "titulo": "7 dias para devolver",
+            "texto": "Direito de arrependimento"
+          }
+        },
+        "b4": {
+          "type": "beneficio",
+          "settings": {
+            "icone": "whatsapp",
+            "titulo": "Atendimento atencioso",
+            "texto": "Respondemos rápido"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ],
+      "settings": {
+        "fundo_contraste": true
+      }
     },
     "featured": {
       "type": "featured-collection",
-      "settings": { "heading": "Mais vendidos", "products_to_show": 4, "columns_desktop": 4 }
+      "settings": {
+        "heading": "Mais vendidos",
+        "products_to_show": 6,
+        "columns_desktop": 3
+      }
+    },
+    "sobre": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Pequenas soluções, grande diferença"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Selecionamos produtos práticos que resolvem problemas do dia a dia: menos bagunça, mais espaço e mais tempo para o que importa.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ]
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "q1": {
+          "type": "pergunta",
+          "settings": {
+            "pergunta": "Qual é o prazo de entrega?",
+            "resposta": "<p>O prazo de entrega aparece na página de cada produto. Assim que o pedido é enviado, você recebe o código de rastreio por e-mail.</p>"
+          }
+        },
+        "q2": {
+          "type": "pergunta",
+          "settings": {
+            "pergunta": "Quais são as formas de pagamento?",
+            "resposta": "<p>Cartão de crédito (com parcelamento), Pix e boleto.</p>"
+          }
+        },
+        "q3": {
+          "type": "pergunta",
+          "settings": {
+            "pergunta": "Posso trocar ou devolver?",
+            "resposta": "<p>Sim. Você tem até 7 dias depois de receber o pedido para desistir da compra, sem precisar justificar, e devolvemos o valor integral. Se o produto chegar com defeito, também trocamos ou devolvemos o dinheiro.</p>"
+          }
+        },
+        "q4": {
+          "type": "pergunta",
+          "settings": {
+            "pergunta": "A compra é segura?",
+            "resposta": "<p>Sim. O pagamento é processado por um intermediador certificado e nós não temos acesso aos dados do seu cartão.</p>"
+          }
+        },
+        "q5": {
+          "type": "pergunta",
+          "settings": {
+            "pergunta": "Como falo com a loja?",
+            "resposta": "<p>Pela página de contato. Se o botão de WhatsApp aparecer no canto da tela, você também pode falar com a gente por lá.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5"
+      ],
+      "settings": {
+        "titulo": "Perguntas frequentes"
+      }
     }
   },
-  "order": ["hero", "featured"]
+  "order": [
+    "hero",
+    "beneficios",
+    "featured",
+    "sobre",
+    "faq"
+  ]
 }

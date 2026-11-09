@@ -1,0 +1,131 @@
+{%- comment -%}
+  ============================================================
+  FAQ — perguntas frequentes em sanfona (accordion)
+  ============================================================
+
+  O QUE FAZ:
+  Lista perguntas e respostas que abrem e fecham ao clicar. Responde
+  as dúvidas que mais travam a compra numa loja nova (prazo, troca,
+  pagamento, rastreio) sem o cliente precisar chamar no WhatsApp.
+
+  ONDE É USADA:
+  Home (templates/index.json). Também funciona em páginas e produtos.
+
+  PRINCIPAIS PARTES:
+  - Setting "titulo": título da seção.
+  - Blocks "pergunta": pergunta (texto) + resposta (rich text).
+  - Usa <details>/<summary>, que é HTML nativo: abre e fecha sem
+    JavaScript e é acessível por teclado e leitor de tela.
+  - Perguntas sem texto ou sem resposta são puladas (na página e no
+    JSON-LD), para não aparecer linha vazia nem dado inválido.
+  - JSON-LD FAQPage: ajuda o Google a entender as perguntas e às vezes
+    mostrá-las direto no resultado da busca.
+
+  OBSERVAÇÕES:
+  As respostas precisam bater com as políticas reais da loja (troca,
+  prazo, pagamento). Se mudar a política, atualize aqui também.
+{%- endcomment -%}
+<div class="faq page-width" data-section-id="{{ section.id }}">
+  {%- if section.settings.titulo != blank -%}
+    <h2 class="faq__titulo">{{ section.settings.titulo | escape }}</h2>
+  {%- endif -%}
+
+  <div class="faq__lista">
+    {%- for block in section.blocks -%}
+      {%- if block.settings.pergunta == blank or block.settings.resposta == blank -%}{%- continue -%}{%- endif -%}
+      <details class="faq__item" {{ block.shopify_attributes }}>
+        <summary class="faq__pergunta">
+          <span>{{ block.settings.pergunta | escape }}</span>
+          {% render 'icon', name: 'chevron' %}
+        </summary>
+        <div class="faq__resposta rte">{{ block.settings.resposta }}</div>
+      </details>
+    {%- endfor -%}
+  </div>
+</div>
+
+{%- liquid
+    # Só entram no JSON-LD as perguntas com pergunta E resposta preenchidas,
+    # senão o Google considera o FAQPage inválido.
+    assign faq_validas = 0
+    for block in section.blocks
+      if block.settings.pergunta != blank and block.settings.resposta != blank
+        assign faq_validas = faq_validas | plus: 1
+      endif
+    endfor
+-%}
+{%- if faq_validas > 0 -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- assign faq_primeira = true -%}
+        {%- for block in section.blocks -%}
+          {%- if block.settings.pergunta == blank or block.settings.resposta == blank -%}{%- continue -%}{%- endif -%}
+          {%- unless faq_primeira -%},{%- endunless -%}
+          {%- assign faq_primeira = false -%}
+          {
+            "@type": "Question",
+            "name": {{ block.settings.pergunta | json }},
+            "acceptedAnswer": { "@type": "Answer", "text": {{ block.settings.resposta | strip_html | json }} }
+          }
+        {%- endfor -%}
+      ]
+    }
+  </script>
+{%- endif -%}
+
+<style>
+  .faq { padding-top: var(--spacing-sections); padding-bottom: var(--spacing-sections); }
+  .faq__titulo { font-size: var(--f6); text-align: center; margin-bottom: 24px; }
+  .faq__lista { max-width: 760px; margin: 0 auto; border-top: 1px solid var(--color-border); }
+  .faq__item { border-bottom: 1px solid var(--color-border); }
+  .faq__pergunta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 44px;
+    padding: 16px 4px;
+    font-size: var(--f3);
+    font-weight: bold;
+    cursor: pointer;
+    list-style: none;
+  }
+  .faq__pergunta::-webkit-details-marker { display: none; }
+  .faq__pergunta svg { flex-shrink: 0; transition: transform 0.2s ease; }
+  .faq__item[open] .faq__pergunta svg { transform: rotate(180deg); }
+  .faq__resposta { padding: 0 4px 18px; font-size: var(--f2); line-height: 1.6; opacity: 0.85; }
+</style>
+
+{% schema %}
+{
+  "name": "t:sections.faq.name",
+  "tag": "section",
+  "class": "section-faq",
+  "settings": [
+    { "type": "text", "id": "titulo", "default": "Perguntas frequentes", "label": "t:sections.faq.settings.titulo.label" }
+  ],
+  "blocks": [
+    {
+      "type": "pergunta",
+      "name": "t:sections.faq.blocks.pergunta.name",
+      "settings": [
+        { "type": "text", "id": "pergunta", "default": "Qual é o prazo de entrega?", "label": "t:sections.faq.blocks.pergunta.settings.pergunta.label" },
+        { "type": "richtext", "id": "resposta", "default": "<p>Escreva aqui a resposta.</p>", "label": "t:sections.faq.blocks.pergunta.settings.resposta.label" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.faq.name",
+      "blocks": [
+        { "type": "pergunta" },
+        { "type": "pergunta" },
+        { "type": "pergunta" }
+      ]
+    }
+  ]
+}
+{% endschema %}

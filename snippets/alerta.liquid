@@ -21,7 +21,9 @@
 
   OBSERVAÇÕES:
   duracao em ms; use 0 para não fechar sozinho. Usa as variáveis de cor
-  --cor-verde, --cor-marca e --cor-branco (definidas em css-variables).
+  --cor-branco (definida em css-variables). Sucesso e erro usam cores
+  fixas (verde e vermelho) de propósito: se dependessem das cores da
+  marca, trocar a paleta podia deixar um erro com cara de sucesso.
 {%- endcomment -%}
 <div id="alerta" class="alerta-global">
   <div class="conteudo">
@@ -62,12 +64,12 @@
   }
 
   .alerta-global.positivo .conteudo {
-    background: linear-gradient(135deg, var(--cor-verde), #20bf6b);
+    background: linear-gradient(135deg, #2b8a3e, #37b24d);
     color: var(--cor-branco);
   }
 
   .alerta-global.negativo .conteudo {
-    background: linear-gradient(135deg, var(--cor-marca), #ff4757);
+    background: linear-gradient(135deg, #c92a2a, #f03e3e);
     color: var(--cor-branco);
   }
 
