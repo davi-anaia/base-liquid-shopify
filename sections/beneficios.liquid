@@ -20,7 +20,11 @@
     do tema para destacar a faixa do resto da página.
 
   OBSERVAÇÕES:
-  - No celular os itens ficam em 2 colunas; no computador, em 4.
+  - No computador, uma coluna por benefício (2, 3 ou 4). No celular
+    (até 1000px), 2 colunas; com número ímpar, o último ocupa a linha toda.
+  - Os selos da página de produto (bloco trust_badges) têm textos
+    parecidos de propósito: aqui é a vitrine da loja, lá é o reforço
+    na hora da compra. Se mudar uma política, atualize os dois.
   - Só prometa o que a loja cumpre de verdade (prazo, troca etc.),
     porque esses textos têm valor de oferta para o Código do Consumidor.
 {%- endcomment -%}
@@ -28,7 +32,7 @@
   class="beneficios {% if section.settings.fundo_contraste %}beneficios--contraste{% endif %}"
   data-section-id="{{ section.id }}"
 >
-  <ul class="beneficios__lista page-width" role="list">
+  <ul class="beneficios__lista page-width" role="list" style="--beneficios-colunas: {{ section.blocks.size }};">
     {%- for block in section.blocks -%}
       <li class="beneficios__item" {{ block.shopify_attributes }}>
         <span class="beneficios__icone">{% render 'icon', name: block.settings.icone %}</span>
@@ -53,15 +57,15 @@
   }
   .beneficios__lista {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(var(--beneficios-colunas, 4), minmax(0, 1fr));
     gap: 20px;
-    margin: 0 auto;
-    padding-left: 16px;
-    padding-right: 16px;
     list-style: none;
   }
-  @media (min-width: 750px) {
-    .beneficios__lista { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  /* Mesmo breakpoint de celular do resto do tema (1000px, ver base.css). */
+  @media screen and (max-width: 1000px) {
+    .beneficios__lista { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    /* Número ímpar de itens: o último ocupa a linha inteira em vez de ficar sozinho. */
+    .beneficios__item:last-child:nth-child(odd) { grid-column: 1 / -1; }
   }
   .beneficios__item { display: flex; align-items: flex-start; gap: 12px; }
   .beneficios__icone {

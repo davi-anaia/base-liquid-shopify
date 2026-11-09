@@ -18,7 +18,8 @@
         "button": {
           "type": "button",
           "settings": {
-            "button_label": "Ver produtos"
+            "button_label": "Ver produtos",
+            "button_link": "shopify://collections/all"
           }
         }
       },
@@ -55,16 +56,16 @@
           "type": "beneficio",
           "settings": {
             "icone": "exchange",
-            "titulo": "7 dias para trocar",
-            "texto": "Devolução simples"
+            "titulo": "7 dias para devolver",
+            "texto": "Direito de arrependimento"
           }
         },
         "b4": {
           "type": "beneficio",
           "settings": {
             "icone": "whatsapp",
-            "titulo": "Atendimento no WhatsApp",
-            "texto": "Tire suas dúvidas"
+            "titulo": "Atendimento atencioso",
+            "texto": "Respondemos rápido"
           }
         }
       },
@@ -114,7 +115,7 @@
           "type": "pergunta",
           "settings": {
             "pergunta": "Qual é o prazo de entrega?",
-            "resposta": "<p>O prazo aparece na página de cada produto e no checkout, de acordo com o seu CEP. Você recebe o código de rastreio por e-mail assim que o pedido é enviado.</p>"
+            "resposta": "<p>O prazo de entrega aparece na página de cada produto. Assim que o pedido é enviado, você recebe o código de rastreio por e-mail.</p>"
           }
         },
         "q2": {
@@ -128,7 +129,7 @@
           "type": "pergunta",
           "settings": {
             "pergunta": "Posso trocar ou devolver?",
-            "resposta": "<p>Sim. Você tem até 7 dias depois de receber o pedido para desistir da compra, sem precisar justificar, e devolvemos o valor integral.</p>"
+            "resposta": "<p>Sim. Você tem até 7 dias depois de receber o pedido para desistir da compra, sem precisar justificar, e devolvemos o valor integral. Se o produto chegar com defeito, também trocamos ou devolvemos o dinheiro.</p>"
           }
         },
         "q4": {
@@ -142,7 +143,7 @@
           "type": "pergunta",
           "settings": {
             "pergunta": "Como falo com a loja?",
-            "resposta": "<p>Pelo botão de WhatsApp no canto da tela ou pela página de contato.</p>"
+            "resposta": "<p>Pela página de contato. Se o botão de WhatsApp aparecer no canto da tela, você também pode falar com a gente por lá.</p>"
           }
         }
       },
