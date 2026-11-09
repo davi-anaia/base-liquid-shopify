@@ -116,6 +116,39 @@
         }
       }
     },
+    "beneficios": {
+      "name": "Benefits",
+      "settings": { "fundo_contraste": { "label": "Use contrast background" } },
+      "blocks": {
+        "beneficio": {
+          "name": "Benefit",
+          "settings": {
+            "icone": {
+              "label": "Icon",
+              "options__1": { "label": "Truck" },
+              "options__2": { "label": "Shield" },
+              "options__3": { "label": "Exchange" },
+              "options__4": { "label": "WhatsApp" }
+            },
+            "titulo": { "label": "Title" },
+            "texto": { "label": "Text" }
+          }
+        }
+      }
+    },
+    "faq": {
+      "name": "FAQ",
+      "settings": { "titulo": { "label": "Heading" } },
+      "blocks": {
+        "pergunta": {
+          "name": "Question",
+          "settings": {
+            "pergunta": { "label": "Question" },
+            "resposta": { "label": "Answer" }
+          }
+        }
+      }
+    },
     "rich_text": {
       "name": "Rich text",
       "settings": {},

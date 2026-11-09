@@ -1,0 +1,130 @@
+{%- comment -%}
+  ============================================================
+  BENEFÍCIOS — faixa de vantagens da loja (frete, segurança, troca...)
+  ============================================================
+
+  O QUE FAZ:
+  Mostra de 2 a 4 vantagens lado a lado, cada uma com ícone, título
+  e um texto curto. Ex.: "Enviamos para todo o Brasil", "Compra segura".
+  É uma das primeiras coisas que o visitante vê, e serve para responder
+  logo de cara a pergunta "posso confiar nesta loja?".
+
+  ONDE É USADA:
+  Home (templates/index.json), logo abaixo do banner. Pode ser
+  adicionada em qualquer página pelo editor de tema.
+
+  PRINCIPAIS PARTES:
+  - Blocks "beneficio" (máx. 4): icone (select), titulo, texto.
+  - Os ícones vêm do snippet 'icon' (truck, shield, exchange, whatsapp).
+  - Setting de seção "fundo_contraste": usa a cor de fundo de contraste
+    do tema para destacar a faixa do resto da página.
+
+  OBSERVAÇÕES:
+  - No celular os itens ficam em 2 colunas; no computador, em 4.
+  - Só prometa o que a loja cumpre de verdade (prazo, troca etc.),
+    porque esses textos têm valor de oferta para o Código do Consumidor.
+{%- endcomment -%}
+<div
+  class="beneficios {% if section.settings.fundo_contraste %}beneficios--contraste{% endif %}"
+  data-section-id="{{ section.id }}"
+>
+  <ul class="beneficios__lista page-width" role="list">
+    {%- for block in section.blocks -%}
+      <li class="beneficios__item" {{ block.shopify_attributes }}>
+        <span class="beneficios__icone">{% render 'icon', name: block.settings.icone %}</span>
+        <div>
+          {%- if block.settings.titulo != blank -%}
+            <p class="beneficios__titulo">{{ block.settings.titulo | escape }}</p>
+          {%- endif -%}
+          {%- if block.settings.texto != blank -%}
+            <p class="beneficios__texto">{{ block.settings.texto | escape }}</p>
+          {%- endif -%}
+        </div>
+      </li>
+    {%- endfor -%}
+  </ul>
+</div>
+
+<style>
+  .beneficios { padding: 28px 0; }
+  .beneficios--contraste {
+    background-color: var(--color-background-contrast);
+    color: var(--color-text-contrast);
+  }
+  .beneficios__lista {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin: 0 auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    list-style: none;
+  }
+  @media (min-width: 750px) {
+    .beneficios__lista { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+  .beneficios__item { display: flex; align-items: flex-start; gap: 12px; }
+  .beneficios__icone {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    color: var(--color-accent);
+    background-color: var(--color-background);
+    border-radius: 50%;
+  }
+  .beneficios__titulo { margin: 0 0 2px; font-size: var(--f2); font-weight: bold; }
+  .beneficios__texto { margin: 0; font-size: var(--f1); opacity: 0.75; }
+</style>
+
+{% schema %}
+{
+  "name": "t:sections.beneficios.name",
+  "tag": "section",
+  "class": "section-beneficios",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "fundo_contraste",
+      "default": true,
+      "label": "t:sections.beneficios.settings.fundo_contraste.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "beneficio",
+      "name": "t:sections.beneficios.blocks.beneficio.name",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icone",
+          "label": "t:sections.beneficios.blocks.beneficio.settings.icone.label",
+          "default": "truck",
+          "options": [
+            { "value": "truck", "label": "t:sections.beneficios.blocks.beneficio.settings.icone.options__1.label" },
+            { "value": "shield", "label": "t:sections.beneficios.blocks.beneficio.settings.icone.options__2.label" },
+            { "value": "exchange", "label": "t:sections.beneficios.blocks.beneficio.settings.icone.options__3.label" },
+            { "value": "whatsapp", "label": "t:sections.beneficios.blocks.beneficio.settings.icone.options__4.label" }
+          ]
+        },
+        { "type": "text", "id": "titulo", "default": "Enviamos para todo o Brasil", "label": "t:sections.beneficios.blocks.beneficio.settings.titulo.label" },
+        { "type": "text", "id": "texto", "default": "Com código de rastreio", "label": "t:sections.beneficios.blocks.beneficio.settings.texto.label" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.beneficios.name",
+      "blocks": [
+        { "type": "beneficio", "settings": { "icone": "truck" } },
+        { "type": "beneficio", "settings": { "icone": "shield" } },
+        { "type": "beneficio", "settings": { "icone": "exchange" } },
+        { "type": "beneficio", "settings": { "icone": "whatsapp" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
