@@ -37,6 +37,9 @@
       "email_placeholder": "Email",
       "confirmation": "Thanks for subscribing.",
       "button_label": "Subscribe"
+    },
+    "whatsapp": {
+      "label": "Talk to us on WhatsApp"
     }
   },
   "accessibility": {
@@ -84,7 +87,9 @@
         "from_price_html": "From {{ price }}",
         "regular_price": "Regular price",
         "sale_price": "Sale price",
-        "unit_price": "Unit price"
+        "unit_price": "Unit price",
+        "installments_html": "or <strong>{{ count }}x of {{ amount }}</strong> interest-free",
+        "pix_html": "<strong>{{ amount }}</strong> with Pix ({{ discount }}% off)"
       },
       "vendor": "Vendor",
       "view_full_details": "View full details",

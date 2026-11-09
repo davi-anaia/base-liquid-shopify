@@ -24,6 +24,8 @@
     editaveis pelo lojista no editor de temas.
   - {{ content_for_layout }}: aqui entra o conteudo especifico de
     cada template/pagina, dentro do <main id="MainContent">.
+  - Botão flutuante de WhatsApp (snippet whatsapp-button), que só
+    aparece quando o número está preenchido nas configurações.
 {%- endcomment -%}
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
@@ -76,5 +78,7 @@
     </main>
 
     {% sections 'footer-group' %}
+
+    {% render 'whatsapp-button' %}
   </body>
 </html>

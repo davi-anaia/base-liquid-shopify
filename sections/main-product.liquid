@@ -34,6 +34,10 @@
   - buy_buttons tem setting show_dynamic_checkout para exibir os
     botões de checkout dinâmico (payment_button).
   - Preço usa o snippet 'price'; ajuste lá para mudar formatação.
+    Com show_br: true ele também mostra parcelamento e preço no Pix.
+  - trust_badges: bloco de selos de confiança (prazo de entrega + 3
+    selos editáveis). Serve para reduzir o medo de golpe, que é a
+    maior objeção de quem compra pela primeira vez numa loja nova.
 {%- endcomment -%}
 
 {%- liquid
@@ -108,7 +112,7 @@
 
           {%- when 'price' -%}
             <div class="product__price" {{ block.shopify_attributes }}>
-              {% render 'price', product: product, use_variant: true, show_compare: true %}
+              {% render 'price', product: product, use_variant: true, show_compare: true, show_br: true %}
               {%- if current_variant.unit_price_measurement -%}
                 <div class="product__unit-price">
                   {{ current_variant.unit_price | money }}
@@ -184,7 +188,7 @@
                       "options": {{ variant.options | json }},
                       "available": {{ variant.available | json }},
                       "featured_media_id": {{ variant.featured_media.id | json }},
-                      "price_html": {%- capture variant_price_html -%}{% render 'price', product: variant, use_variant: false, show_compare: true %}{%- endcapture -%}{{ variant_price_html | strip_newlines | json }}
+                      "price_html": {%- capture variant_price_html -%}{% render 'price', product: variant, use_variant: false, show_compare: true, show_br: true %}{%- endcapture -%}{{ variant_price_html | strip_newlines | json }}
                     }{%- unless forloop.last -%},{%- endunless -%}
                   {%- endfor -%}
                 ]
@@ -237,6 +241,27 @@
               {% render 'share-button', share_link: product.url, share_title: product.title %}
             </div>
 
+          {%- when 'trust_badges' -%}
+            <div class="trust-badges" {{ block.shopify_attributes }}>
+              {%- if block.settings.entrega != blank -%}
+                <p class="trust-badges__entrega">
+                  {% render 'icon', name: 'truck' %}
+                  <span>{{ block.settings.entrega | escape }}</span>
+                </p>
+              {%- endif -%}
+              <ul class="trust-badges__list" role="list">
+                {%- if block.settings.selo_1 != blank -%}
+                  <li>{% render 'icon', name: 'shield' %}<span>{{ block.settings.selo_1 | escape }}</span></li>
+                {%- endif -%}
+                {%- if block.settings.selo_2 != blank -%}
+                  <li>{% render 'icon', name: 'exchange' %}<span>{{ block.settings.selo_2 | escape }}</span></li>
+                {%- endif -%}
+                {%- if block.settings.selo_3 != blank -%}
+                  <li>{% render 'icon', name: 'truck' %}<span>{{ block.settings.selo_3 | escape }}</span></li>
+                {%- endif -%}
+              </ul>
+            </div>
+
           {%- when 'custom_liquid' -%}
             <div {{ block.shopify_attributes }}>{{ block.settings.custom_liquid }}</div>
         {%- endcase -%}
@@ -274,6 +299,17 @@
         }
       ]
     },
+    {
+      "type": "trust_badges",
+      "name": "t:sections.main_product.blocks.trust_badges.name",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "entrega", "default": "Entrega em 3 a 10 dias úteis", "label": "t:sections.main_product.blocks.trust_badges.settings.entrega.label" },
+        { "type": "text", "id": "selo_1", "default": "Compra 100% segura", "label": "t:sections.main_product.blocks.trust_badges.settings.selo_1.label" },
+        { "type": "text", "id": "selo_2", "default": "7 dias para trocar ou devolver", "label": "t:sections.main_product.blocks.trust_badges.settings.selo_2.label" },
+        { "type": "text", "id": "selo_3", "default": "Enviamos para todo o Brasil", "label": "t:sections.main_product.blocks.trust_badges.settings.selo_3.label" }
+      ]
+    },
     { "type": "description", "name": "t:sections.main_product.blocks.description.name", "limit": 1 },
     { "type": "share", "name": "t:sections.main_product.blocks.share.name", "limit": 1 },
     {
@@ -299,6 +335,7 @@
         { "type": "variant_picker" },
         { "type": "quantity" },
         { "type": "buy_buttons" },
+        { "type": "trust_badges" },
         { "type": "description" },
         { "type": "share" }
       ]

@@ -17,6 +17,21 @@
     se passar uma variante direta, mande false.
   - show_compare (bool): se true, mostra o preço riscado quando em promoção.
   - price_class: classe CSS extra aplicada no wrapper .price.
+  - show_br (bool): se true, mostra abaixo do preço o parcelamento
+    ("ou 6x de R$ 24,90 sem juros") e o preço com desconto no Pix.
+    Os números vêm das configurações do tema, grupo "Vendas no Brasil".
+
+  REGRAS DO PARCELAMENTO (show_br):
+  - Número de parcelas = o menor valor entre o máximo configurado e
+    quantas parcelas cabem respeitando o valor mínimo de cada parcela.
+    Ex.: produto de R$ 89, máximo 6x, mínimo R$ 10 -> 6x de R$ 14,83.
+    Ex.: produto de R$ 25, mínimo R$ 10 -> só 2x de R$ 12,50.
+  - Se couber menos de 2 parcelas, a linha não aparece.
+  - Preço no Pix = preço x (100 - desconto) / 100. Com desconto 0 a linha
+    não aparece.
+  - IMPORTANTE: o tema só EXIBE essas mensagens. O parcelamento sem juros
+    e o desconto no Pix precisam estar configurados de verdade no gateway
+    de pagamento, senão a loja promete algo que o checkout não cumpre.
 
   OBSERVAÇÕES:
   Produtos expõem compare_at_price_max e price_varies; variantes expõem
@@ -63,3 +78,36 @@
     {%- endif -%}
   {%- endif -%}
 </div>
+
+{%- if show_br and price_varies == false -%}
+  {%- liquid
+    # Valores em centavos, como a Shopify trabalha internamente.
+    assign br_preco = target.price
+    assign br_parcela_min_centavos = settings.br_parcela_minima | times: 100
+    assign br_parcelas = br_preco | divided_by: br_parcela_min_centavos
+    if br_parcelas > settings.br_parcelas_max
+      assign br_parcelas = settings.br_parcelas_max
+    endif
+    # Evita divisão por zero quando o produto custa menos que a parcela mínima.
+    if br_parcelas < 1
+      assign br_parcelas = 1
+    endif
+    assign br_fator_pix = 100 | minus: settings.br_pix_desconto
+    assign br_preco_pix = br_preco | times: br_fator_pix | divided_by: 100
+    # Formata em reais antes, porque argumento de tradução não aceita filtro.
+    assign br_valor_parcela = br_preco | divided_by: br_parcelas | money
+    assign br_valor_pix = br_preco_pix | money
+  -%}
+  <div class="price-br {{ price_class }}">
+    {%- if settings.br_parcelamento_ativo and br_parcelas >= 2 -%}
+      <p class="price-br__parcelas">
+        {{- 'products.product.price.installments_html' | t: count: br_parcelas, amount: br_valor_parcela -}}
+      </p>
+    {%- endif -%}
+    {%- if settings.br_pix_desconto > 0 -%}
+      <p class="price-br__pix">
+        {{- 'products.product.price.pix_html' | t: amount: br_valor_pix, discount: settings.br_pix_desconto -}}
+      </p>
+    {%- endif -%}
+  </div>
+{%- endif -%}

@@ -1,0 +1,44 @@
+{%- comment -%}
+  ============================================================
+  whatsapp-button — botão flutuante de WhatsApp
+  ============================================================
+
+  O QUE FAZ:
+  Mostra um botão verde fixo no canto inferior direito que abre uma
+  conversa no WhatsApp com a loja, já com uma mensagem inicial.
+  No Brasil o WhatsApp é o canal de atendimento preferido, e tirar
+  uma dúvida rápido aumenta a chance de a pessoa comprar.
+
+  ONDE É USADO:
+  layout/theme.liquid, em todas as páginas.
+
+  CONFIGURAÇÃO (editor de tema > Configurações > Vendas no Brasil):
+  - br_whatsapp_numero: só números, com DDI 55 e DDD (5511999999999).
+    Em branco = o botão não aparece.
+  - br_whatsapp_mensagem: texto que já vem digitado na conversa.
+
+  OBSERVAÇÕES:
+  - O filtro remove_* limpa espaços, traços, parênteses e o "+" caso o
+    lojista digite o número formatado.
+  - url_encode transforma a mensagem num formato seguro para URL.
+  - Na página do produto, a mensagem inclui o nome do produto, para o
+    atendimento já saber do que se trata.
+{%- endcomment -%}
+{%- liquid
+  assign wa_numero = settings.br_whatsapp_numero | remove: ' ' | remove: '-' | remove: '(' | remove: ')' | remove: '+'
+  assign wa_mensagem = settings.br_whatsapp_mensagem
+  if request.page_type == 'product' and product
+    assign wa_mensagem = wa_mensagem | append: ' (' | append: product.title | append: ')'
+  endif
+-%}
+{%- if wa_numero != blank -%}
+  <a
+    class="whatsapp-button"
+    href="https://wa.me/{{ wa_numero }}?text={{ wa_mensagem | url_encode }}"
+    target="_blank"
+    rel="noopener"
+    aria-label="{{ 'general.whatsapp.label' | t }}"
+  >
+    {% render 'icon', name: 'whatsapp' %}
+  </a>
+{%- endif -%}

@@ -75,7 +75,7 @@
         <span class="card-product__vendor">{{ card_product.vendor }}</span>
       {%- endif -%}
       <h3 class="card-product__title">{{ card_product.title | escape }}</h3>
-      {% render 'price', product: card_product, use_variant: false, show_compare: true, price_class: 'price--card' %}
+      {% render 'price', product: card_product, use_variant: false, show_compare: true, show_br: true, price_class: 'price--card' %}
     </div>
   </a>
 </div>
