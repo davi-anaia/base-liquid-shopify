@@ -3,16 +3,16 @@
     "hero": {
       "type": "image-banner",
       "blocks": {
-        "heading": { "type": "heading", "settings": { "heading": "Welcome to your store" } },
-        "text": { "type": "text", "settings": { "text": "<p>Add your headline and shop link here.</p>" } },
-        "button": { "type": "button", "settings": { "button_label": "Shop now" } }
+        "heading": { "type": "heading", "settings": { "heading": "Achadinhos que facilitam o seu dia a dia" } },
+        "text": { "type": "text", "settings": { "text": "<p>Organização, praticidade e conforto para a sua casa, com entrega para todo o Brasil.</p>" } },
+        "button": { "type": "button", "settings": { "button_label": "Ver produtos" } }
       },
       "block_order": ["heading", "text", "button"],
       "settings": { "height": "medium", "text_alignment": "center" }
     },
     "featured": {
       "type": "featured-collection",
-      "settings": { "heading": "Featured collection", "products_to_show": 4, "columns_desktop": 4 }
+      "settings": { "heading": "Mais vendidos", "products_to_show": 4, "columns_desktop": 4 }
     }
   },
   "order": ["hero", "featured"]
